@@ -342,9 +342,24 @@ def toon_weerbericht():
             # Werk het label bij met informatie over het weer en de beschikbare diensten.
             weerbericht_label.config(text=f"Weerbericht in {CITY}: {temp_celsius}°C, {weer_in_de_stad}\n\n\n\n" +
                                           f"Beschikbare voorzieningen: {', '.join(beschikbare_voorzieningen)}")
-            if geselecteerde_stad == 'Zwolle':
+            if CITY == 'Zwolle':
                 img_label = tk.Label(weer_frame, image=img_toilet, bg=kleur2)
-                img_label.place(relx=0.5, rely=0.5, anchor="center")  # Center the image in the frame
+                img_label.place(relx=0.5, rely=0.5, anchor="center")
+                img_ovfiets_label = tk.Label(weer_frame, image=img_ovfiets, bg=kleur2)
+                img_ovfiets_label.pack(side="left", anchor="w")
+                # Center the image in the frame
+            elif CITY == 'Utrecht':
+                img_label = tk.Label(weer_frame, image=img_toilet, bg=kleur2)
+                img_label.place(relx=0.5, rely=0.5, anchor="center")
+                img_ovfiets_label = tk.Label(weer_frame, image=img_ovfiets, bg=kleur2)
+                img_ovfiets_label.pack(side="left", anchor="w")
+                # Center the image in the frame
+            elif CITY == 'Amersfoort':
+                img_label = tk.Label(weer_frame, image=img_toilet, bg=kleur2)
+                img_label.place(relx=0.5, rely=0.5, anchor="center")
+                img_ovfiets_label = tk.Label(weer_frame, image=img_ovfiets, bg=kleur2)
+                img_ovfiets_label.pack(side="left", anchor="w")
+                # Center the image in the frame
 
 
         else:
@@ -380,7 +395,8 @@ berichten_titel.pack(pady=20)
 # foto's
 img_toilet_path = "img_toilet.png"
 img_toilet = PhotoImage(file=img_toilet_path)
-
+img_ovfiets_path = "img_ovfiets.png"
+img_ovfiets = PhotoImage(file=img_ovfiets_path)
 toon_berichten()
 toon_weerbericht()
 
